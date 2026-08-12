@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Name]</title>
+<meta name="description" content="[Your Name] — [your one-line title, e.g. PhD student in Computer Science]">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+
+<!-- ============ ICON SPRITE (hidden) ============ -->
+<svg style="display:none">
+  <symbol id="icon-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+  <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></symbol>
+  <symbol id="icon-download" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></symbol>
+  <symbol id="icon-scholar" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></symbol>
+  <symbol id="icon-arxiv" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></symbol>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="top">
+  <nav class="nav-inner">
+    <a class="nav-brand" href="#top">
+      <img src="assets/avatar-placeholder.svg" alt="[Your Name]" class="nav-avatar">
+      <span>[Your Name]</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#bio">Bio</a></li>
+      <li><a href="#updates">Updates</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="#" class="nav-cv" aria-label="Download CV" title="Download CV">
+          <svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ============ HERO / INTRO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">[Your one-line title — e.g. "PhD Candidate · Machine Learning"]</p>
+    <h1>[Your Name]</h1>
+    <p class="hero-bio">
+      [Write 2–4 sentences here: who you are, what you research or build, your affiliation,
+      and anything you want a visitor to know first. Example: "I am a [role] at [institution],
+      interested in [research area]. Before that, I was a [previous role] at [previous institution],
+      where I worked on [topic]. My work has been supported by [funding/fellowship, optional]."]
+    </p>
+    <div class="hero-actions">
+      <a href="#research" class="btn btn-primary">Explore Research</a>
+      <a href="#publications" class="btn btn-secondary">View Publications</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESEARCH ============ -->
+<section class="section" id="research">
+  <div class="section-inner">
+    <h2 class="section-title">Research</h2>
+    <p class="section-subtitle">[One-line summary of your overall research agenda or motivation.]</p>
+
+    <div class="research-grid">
+
+      <article class="research-card">
+        <h3>[Research Topic One — e.g. "World Models & Planning"]</h3>
+        <p>[Two or three sentences describing this research direction: the problem, your approach, and why it matters.]</p>
+        <div class="tag-row">
+          <span class="tag">[keyword]</span>
+          <span class="tag">[keyword]</span>
+          <span class="tag">[keyword]</span>
+        </div>
+      </article>
+
+      <article class="research-card">
+        <h3>[Research Topic Two — e.g. "Representation Learning"]</h3>
+        <p>[Two or three sentences describing this research direction: the problem, your approach, and why it matters.]</p>
+        <div class="tag-row">
+          <span class="tag">[keyword]</span>
+          <span class="tag">[keyword]</span>
+        </div>
+      </article>
+
+      <article class="research-card">
+        <h3>[Research Topic Three — e.g. "Applications to Healthcare"]</h3>
+        <p>[Two or three sentences describing this research direction: the problem, your approach, and why it matters.]</p>
+        <div class="tag-row">
+          <span class="tag">[keyword]</span>
+          <span class="tag">[keyword]</span>
+          <span class="tag">[keyword]</span>
+        </div>
+      </article>
+
+      <article class="research-card">
+        <h3>[Research Topic Four — optional, delete if unused]</h3>
+        <p>[Two or three sentences describing this research direction.]</p>
+        <div class="tag-row">
+          <span class="tag">[keyword]</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ BIO / TIMELINE ============ -->
+<section class="section section-alt" id="bio">
+  <div class="section-inner">
+    <h2 class="section-title">Bio</h2>
+    <p class="section-subtitle">[Optional one-line intro to your timeline, or delete this line.]</p>
+
+    <ol class="timeline">
+      <li class="timeline-item">
+        <div class="timeline-date">[Year] — present</div>
+        <div class="timeline-content">
+          <h3>[Current role] · [Institution]</h3>
+          <p>[One to two sentences on what you're doing now and what it builds on.]</p>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <div class="timeline-date">[Year] — [Year]</div>
+        <div class="timeline-content">
+          <h3>[Previous role] · [Institution]</h3>
+          <p>[One to two sentences describing this period.]</p>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <div class="timeline-date">[Year] — [Year]</div>
+        <div class="timeline-content">
+          <h3>PhD · [Institution] (advised by [Advisor])</h3>
+          <p>[One to two sentences on your PhD research.]</p>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <div class="timeline-date">[Year] — [Year]</div>
+        <div class="timeline-content">
+          <h3>[Degree] · [Institution]</h3>
+          <p>[One to two sentences, optional.]</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ UPDATES ============ -->
+<section class="section" id="updates">
+  <div class="section-inner">
+    <h2 class="section-title">Updates</h2>
+    <p class="section-subtitle">[Optional one-line intro, e.g. "Recent news."]</p>
+
+    <div class="updates-list">
+
+      <article class="update-card">
+        <div class="update-date">[Mon Year]</div>
+        <div class="update-content">
+          <span class="update-tag">[Tag, e.g. Paper]</span>
+          <p>[One sentence describing the update — e.g. "Our paper on [topic] was accepted to [venue]."]</p>
+        </div>
+      </article>
+
+      <article class="update-card">
+        <div class="update-date">[Mon Year]</div>
+        <div class="update-content">
+          <span class="update-tag">[Tag, e.g. Talk]</span>
+          <p>[One sentence describing the update.]</p>
+        </div>
+      </article>
+
+      <article class="update-card">
+        <div class="update-date">[Mon Year]</div>
+        <div class="update-content">
+          <span class="update-tag">[Tag, e.g. Award]</span>
+          <p>[One sentence describing the update.]</p>
+        </div>
+      </article>
+
+      <article class="update-card">
+        <div class="update-date">[Mon Year — optional, delete if unused]</div>
+        <div class="update-content">
+          <span class="update-tag">[Tag]</span>
+          <p>[One sentence describing the update.]</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PUBLICATIONS ============ -->
+<section class="section section-alt" id="publications">
+  <div class="section-inner">
+    <h2 class="section-title">Selected Publications</h2>
+    <p class="section-subtitle">[Optional one-line intro, e.g. "A few highlights — see below for the full record."]</p>
+
+    <div class="pub-list">
+
+      <article class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-tag">[Venue, e.g. NeurIPS 2026]</span>
+        </div>
+        <h3 class="pub-title">[Paper Title Placeholder One]</h3>
+        <p class="pub-authors">[Author One, Author Two, <strong>Your Name</strong>, Author Three]</p>
+        <p class="pub-desc">[Two to three sentence overview of the paper: the problem, the approach, and the key result.]</p>
+        <div class="pub-links">
+          <a href="#"><svg class="icon-sm" aria-hidden="true"><use href="#icon-arxiv"/></svg>PDF</a>
+          <a href="#"><svg class="icon-sm" aria-hidden="true"><use href="#icon-github"/></svg>Code</a>
+        </div>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-tag">[Venue, e.g. ICML 2025]</span>
+        </div>
+        <h3 class="pub-title">[Paper Title Placeholder Two]</h3>
+        <p class="pub-authors">[<strong>Your Name</strong>, Author Two, Author Three]</p>
+        <p class="pub-desc">[Two to three sentence overview of the paper: the problem, the approach, and the key result.]</p>
+        <div class="pub-links">
+          <a href="#"><svg class="icon-sm" aria-hidden="true"><use href="#icon-arxiv"/></svg>PDF</a>
+          <a href="#"><svg class="icon-sm" aria-hidden="true"><use href="#icon-github"/></svg>Code</a>
+        </div>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-tag">[Venue, e.g. Preprint 2025]</span>
+        </div>
+        <h3 class="pub-title">[Paper Title Placeholder Three]</h3>
+        <p class="pub-authors">[Author One, <strong>Your Name</strong>]</p>
+        <p class="pub-desc">[Two to three sentence overview of the paper: the problem, the approach, and the key result.]</p>
+        <div class="pub-links">
+          <a href="#"><svg class="icon-sm" aria-hidden="true"><use href="#icon-arxiv"/></svg>PDF</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Published at -->
+    <div class="published-at">
+      <h3 class="published-at-title">Published at</h3>
+      <div class="venue-badges">
+        <span class="venue-badge">[Venue 1]</span>
+        <span class="venue-badge">[Venue 2]</span>
+        <span class="venue-badge">[Venue 3]</span>
+        <span class="venue-badge">[Venue 4]</span>
+        <span class="venue-badge">[Venue 5]</span>
+      </div>
+      <a href="[link to Google Scholar]" class="btn btn-secondary btn-sm">See all publications on Google Scholar</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE ============ -->
+<section class="section" id="service">
+  <div class="section-inner">
+    <h2 class="section-title">Service</h2>
+    <p class="section-subtitle">[Optional one-line intro, e.g. "Teaching and mentoring experience."]</p>
+
+    <div class="service-grid">
+
+      <article class="service-card">
+        <div class="service-meta">[Term, e.g. Fall 2025]</div>
+        <h3>[Course name / Role — e.g. "Teaching Assistant, Machine Learning"]</h3>
+        <p>[One or two sentences: institution, your responsibilities, or what the role involved.]</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-meta">[Term, e.g. 2024 — present]</div>
+        <h3>[Mentoring role — e.g. "Mentor, Undergraduate Research Program"]</h3>
+        <p>[One or two sentences describing who you mentored and on what.]</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-meta">[Term]</div>
+        <h3>[Other service — e.g. "Reviewer, [Conference/Journal]"]</h3>
+        <p>[One or two sentences, optional.]</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-meta">[Term — optional, delete if unused]</div>
+        <h3>[Additional teaching/service entry]</h3>
+        <p>[One or two sentences.]</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section section-alt" id="contact">
+  <div class="section-inner">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-subtitle">[Short line inviting people to reach out — e.g. "Open to collaborations, questions, or just saying hi."]</p>
+
+    <div class="contact-icons">
+      <a href="mailto:[your.email@example.com]" class="contact-icon" title="Email">
+        <span class="icon-circle"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg></span>
+        <span>Email</span>
+      </a>
+      <a href="[link to LinkedIn]" class="contact-icon" title="LinkedIn">
+        <span class="icon-circle"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></span>
+        <span>LinkedIn</span>
+      </a>
+      <a href="[link to GitHub]" class="contact-icon" title="GitHub">
+        <span class="icon-circle"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg></span>
+        <span>GitHub</span>
+      </a>
+      <a href="[link to Google Scholar]" class="contact-icon" title="Google Scholar">
+        <span class="icon-circle"><svg class="icon" aria-hidden="true"><use href="#icon-scholar"/></svg></span>
+        <span>Scholar</span>
+      </a>
+      <a href="[link to arXiv author page]" class="contact-icon" title="arXiv">
+        <span class="icon-circle"><svg class="icon" aria-hidden="true"><use href="#icon-arxiv"/></svg></span>
+        <span>arXiv</span>
+      </a>
+      <a href="#" class="contact-icon" title="Download CV">
+        <span class="icon-circle"><svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg></span>
+        <span>CV</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <p>&copy; <span id="year"></span> [Your Name]. Built with a simple static template, hosted on GitHub Pages.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
