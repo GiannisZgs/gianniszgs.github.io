@@ -7,6 +7,13 @@
 <meta name="description" content="Ioannis Ziogas — AI researcher, self-supervised learning, signal processing, time series">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:,">
+<script>
+  (function () {
+    var stored = localStorage.getItem('theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
 </head>
 <body>
 
@@ -85,6 +92,24 @@
     <path d="M12 2s7 8.5 7 13a7 7 0 1 1-14 0c0-4.5 7-13 7-13z"/>
     <line x1="8.5" y1="15" x2="15.5" y2="15"/>
   </symbol>
+  <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="4.2"/>
+    <line x1="12" y1="1.5" x2="12" y2="4.2"/>
+    <line x1="12" y1="19.8" x2="12" y2="22.5"/>
+    <line x1="1.5" y1="12" x2="4.2" y2="12"/>
+    <line x1="19.8" y1="12" x2="22.5" y2="12"/>
+    <line x1="4.4" y1="4.4" x2="6.3" y2="6.3"/>
+    <line x1="17.7" y1="17.7" x2="19.6" y2="19.6"/>
+    <line x1="4.4" y1="19.6" x2="6.3" y2="17.7"/>
+    <line x1="17.7" y1="6.3" x2="19.6" y2="4.4"/>
+  </symbol>
+  <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 14.5a8.5 8.5 0 1 1-10.5-11 7 7 0 0 0 10.5 11z"/>
+  </symbol>
+  <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/>
+    <path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/>
+  </symbol>
 </svg>
 
 <!-- ============ NAV ============ -->
@@ -103,6 +128,12 @@
       <li><a href="#service">Service</a></li>
       <li><a href="#contact">Contact</a></li>
       <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+        </button>
+      </li>
+      <li>
         <a href="assets/CV_Ioannis_Ziogas_aug2026.pdf" download class="nav-cv" aria-label="Download CV" title="Download CV">
           <svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg>
         </a>
@@ -113,6 +144,7 @@
 
 <!-- ============ HERO / INTRO ============ -->
 <section class="hero">
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
   <div class="hero-inner">
     <p class="hero-eyebrow">AI researcher, self-supervised learning, learnable signal processing, variational learning, time series</p>
     <h1>Ioannis Ziogas</h1>
@@ -136,6 +168,7 @@
 
 <!-- ============ RESEARCH ============ -->
 <section class="section" id="research">
+  <canvas class="section-canvas" data-trace></canvas>
   <div class="section-inner">
     <h2 class="section-title">Research</h2>
     <p class="section-subtitle"> AI research progress in terms of novel and smarter techniques has plateaued by relying on scaling data and parameters. 
@@ -148,7 +181,7 @@
     <div class="research-grid">
 
       <article class="research-card research-card--featured">
-        <span class="featured-tag">Featured -- 2026 focus</span>
+        <span class="featured-tag">Featured -- 2026</span>
         <div class="research-card-header">
           <svg class="icon research-card-icon" aria-hidden="true"><use href="#icon-omnimodal"/></svg>
           <h3> Omni-modal & Full-stack Representations for Time Series </h3>
@@ -193,27 +226,40 @@
       </article>
 
       <article class="research-card">
-        <span class="featured-tag">Featured -- 2025 focus</span>
+        <span class="featured-tag">Featured -- 2025</span>
         <div class="research-card-header">
           <svg class="icon research-card-icon" aria-hidden="true"><use href="#icon-disentanglement"/></svg>
           <h3> Advancing Disentangled Representation Learning </h3>
         </div>
-        <p>[Two or three sentences describing this research direction: the problem, your approach, and why it matters.]</p>
+        <p>Integrating the dynamics of signal decomposition into variational autoencoders to improve disentanglement in representations.
+          Self-supervised latent decomposition learns a disentangled representation by achieving equilibrium by contrasting fundamental components of a signal. (Demonstrated through applications
+          in speech recognition, dysarthric speech and speech emotion recognition.) 
+        </p>
         <div class="tag-row">
-          <span class="tag">[keyword]</span>
-          <span class="tag">[keyword]</span>
-          <span class="tag">[keyword]</span>
+          <span class="tag">DecVAE</span>
+          <span class="tag">self-supervised</span>
+          <span class="tag">unsupervised</span>
+          <span class="tag">latent decomposition</span>
+          <span class="tag">variational decomposition learning</span>
+          <span class="tag">disentanglement</span>
+          <span class="tag">structure</span>
         </div>
       </article>
 
       <article class="research-card">
+        <span class="featured-tag">2024</span>
         <div class="research-card-header">
           <svg class="icon research-card-icon" aria-hidden="true"><use href="#icon-ssl"/></svg>
           <h3> Self-Supervised Learning </h3>
         </div>
-        <p>[Two or three sentences describing this research direction.]</p>
+        <p>Integrating structural biases into self-supervised learning workflows, adapting existing successful workflows through signal processing - CochCepsAugment augmentation inspired from SpecAugment and SimCLR,
+          inserting the decomposition operation as masking into wav2vec2.0, graph masking operations. </p>
         <div class="tag-row">
-          <span class="tag">[keyword]</span>
+          <span class="tag">CochCepsAugment</span>
+          <span class="tag">decomposition masking</span>
+          <span class="tag">graph neural networks</span>
+          <span class="tag">contrastive learning</span>
+          <span class="tag">augmentations</span>
         </div>
       </article>
 
@@ -221,11 +267,20 @@
         <div class="research-card-header">
           <svg class="icon research-card-icon" aria-hidden="true"><use href="#icon-pulse"/></svg>
           <svg class="icon research-card-icon" aria-hidden="true"><use href="#icon-medical-cross"/></svg>
-          <h3> Applications to Healthcare </h3>
+          <h3> Applications in Health Informatics </h3>
         </div>
-        <p>[Two or three sentences describing this research direction.]</p>
+        <p>Utilizing representations as biomarkers for improved performance in healthcare informatics analysis - activity recognition, biometrics, affective computing,
+          neurodegenerative diseases (Parkinson's, ALS) and motor/non-motor symptoms (tremor, dysarthria, gastrointestinal) detection, neurological disorders and comorbidities.  </p>
         <div class="tag-row">
-          <span class="tag">[keyword]</span>
+          <span class="tag">health informatics</span>
+          <span class="tag">prediction</span>
+          <span class="tag">EEG</span>
+          <span class="tag">inertial sensors</span>
+          <span class="tag">wearables</span>
+          <span class="tag">smartphone data</span>
+          <span class="tag">electrogastrogram</span>
+          <span class="tag">migraine</span>
+          <span class="tag">bioacoustics</span>
         </div>
       </article>
 
@@ -235,9 +290,15 @@
           <svg class="icon research-card-icon" aria-hidden="true"><use href="#icon-voice-bars"/></svg>
           <h3> Speech Recognition </h3>
         </div>
-        <p>[Two or three sentences describing this research direction.]</p>
+        <p>Investigating speech at the lowest levels of spectral properties and combinations of formants that form speech units - simulating speech vowels, 
+          through artificial speakers to analyze disentanglement in speech data. Utilizing disentangled representations to interpret how separating these factors of variation
+          contributes to classic speech recognition tasks i.e. speaker identification, phoneme recognition in real speech.
+        </p>
         <div class="tag-row">
-          <span class="tag">[keyword]</span>
+          <span class="tag">simulated speech</span>
+          <span class="tag">speaker identification</span>
+          <span class="tag">phoneme recognition</span>
+          <span class="tag">speech decomposition</span>
         </div>
       </article>
 
@@ -246,9 +307,14 @@
           <svg class="icon research-card-icon" aria-hidden="true"><use href="#icon-material-analysis"/></svg>
           <h3> Signal processing & Representation Learning for Material Analysis </h3>
         </div>
-        <p>[Two or three sentences describing this research direction.]</p>
+        <p>Comparing different sensing materials and isolating material signatures on physiological multi-lead waveforms - using heartbeat segmentation,
+          unsupervised clustering, heartbeat and lead profiling per material. </p>
         <div class="tag-row">
-          <span class="tag">[keyword]</span>
+          <span class="tag">ECG</span>
+          <span class="tag">clustering</span>
+          <span class="tag">unsupervised</span>
+          <span class="tag">hydrogel sensor</span>
+          <span class="tag">heartbeat profiling</span>
         </div>
       </article>
 
@@ -256,11 +322,18 @@
         <div class="research-card-header">
           <svg class="icon research-card-icon" aria-hidden="true"><use href="#icon-magnifier-wave"/></svg>
           <svg class="icon research-card-icon" aria-hidden="true"><use href="#icon-blood-drop"/></svg>
-          <h3> Advanced Signal processing Techniques for Disease Biomarkers Discovery </h3>
+          <h3> Advanced Signal Processing Techniques for Disease Biomarkers Discovery </h3>
         </div>
-        <p>[Two or three sentences describing this research direction.]</p>
+        <p>Transforming biomedical signals into informative representations by means of advanced DSP - spectral analysis, time-frequency analysis, 
+            higher order statistics, signal decomposition, multi-channel signals. Identifying patterns to use as biomarkers by means of feature engineering and 
+            machine learning workflows for enhanced disease prediction and characterization - in Parkinson's motor and non-motor symptoms, and comorbid migraine.</p>
         <div class="tag-row">
-          <span class="tag">[keyword]</span>
+          <span class="tag">bispectrum</span>
+          <span class="tag">functional connectivity</span>
+          <span class="tag">brain networks</span>
+          <span class="tag">EEG</span>
+          <span class="tag">accelerometer</span>
+          <span class="tag">electrogastrogram</span>
         </div>
       </article>
 
@@ -270,37 +343,38 @@
 
 <!-- ============ BIO / TIMELINE ============ -->
 <section class="section section-alt" id="bio">
+  <canvas class="section-canvas" data-trace></canvas>
   <div class="section-inner">
     <h2 class="section-title">Bio</h2>
     <p class="section-subtitle">Six years on connecting signal processing theory to representation learning theory.</p>
 
     <ol class="timeline">
       <li class="timeline-item">
-        <div class="timeline-date">[Year] — present</div>
+        <div class="timeline-date">Aug 2025 — Jul 2026</div>
         <div class="timeline-content">
-          <h3>[Current role] · [Institution]</h3>
-          <p>[One to two sentences on what you're doing now and what it builds on.]</p>
+          <h3>Graduate Visiting Researcher · University of Toronto</h3>
+          <p>Designed multi-modal self-supervised representation learning models addressing omni-modality and full-stack representations in wearable time series, at the Biometrics and Security Lab (BioSec.lab) under Prof. Dimitrios Hatzinakos. Applied to activity recognition, biometric identification, and multi-modal wearable data synthesis.</p>
         </div>
       </li>
       <li class="timeline-item">
-        <div class="timeline-date">[Year] — [Year]</div>
+        <div class="timeline-date">Aug 2022 — Jul 2026</div>
         <div class="timeline-content">
-          <h3>[Previous role] · [Institution]</h3>
-          <p>[One to two sentences describing this period.]</p>
+          <h3>PhD, Biomedical Engineering · Khalifa University of Science and Technology</h3>
+          <p>Dissertation: "Structure-aware Self- and Unsupervised Representation Learning for Acoustic and Physiological Time Series," advised by Prof. Leontios J. Hadjileontiadis, Prof. Ahsan H. Khandoker, and Dr. Aamna Al Shehhi. Developed variational decomposition autoencoders, a framework for measuring disentanglement in time series by integrating signal processing priors as inductive biases.</p>
         </div>
       </li>
       <li class="timeline-item">
-        <div class="timeline-date">[Year] — [Year]</div>
+        <div class="timeline-date">Sep 2020 — Jun 2022</div>
         <div class="timeline-content">
-          <h3>PhD · [Institution] (advised by [Advisor])</h3>
-          <p>[One to two sentences on your PhD research.]</p>
+          <h3>Research Assistant · Aristotle University of Thessaloniki</h3>
+          <p>Signal Processing and Biomedical Technology Unit (SPBTU), advised by Prof. Leontios J. Hadjileontiadis. Analyzed rest tremor accelerometer recordings from Parkinson's Disease patients using higher-order spectra and cepstral analysis, proposing new tremor characterization strategies with respect to levodopa and deep brain stimulation interventions.</p>
         </div>
       </li>
       <li class="timeline-item">
-        <div class="timeline-date">[Year] — [Year]</div>
+        <div class="timeline-date">Sep 2016 — Apr 2022</div>
         <div class="timeline-content">
-          <h3>[Degree] · [Institution]</h3>
-          <p>[One to two sentences, optional.]</p>
+          <h3>M.Sc. (Integrated), Electrical &amp; Computer Engineering · Aristotle University of Thessaloniki</h3>
+          <p>Major in Telecommunications Engineering. Thesis: "Classification and Characterization of the Effect of Migraine through Functional Connectivity Characteristics," applied to EEG recordings from a multimorbid clinical sample, advised by Prof. Leontios J. Hadjileontiadis and Dr. Herbert F. Jelinek.</p>
         </div>
       </li>
     </ol>
@@ -309,6 +383,7 @@
 
 <!-- ============ UPDATES ============ -->
 <section class="section" id="updates">
+  <canvas class="section-canvas" data-trace></canvas>
   <div class="section-inner">
     <h2 class="section-title">Updates</h2>
     <p class="section-subtitle">[Optional one-line intro, e.g. "Recent news."]</p>
@@ -353,47 +428,96 @@
 
 <!-- ============ PUBLICATIONS ============ -->
 <section class="section section-alt" id="publications">
+  <canvas class="section-canvas" data-trace></canvas>
   <div class="section-inner">
     <h2 class="section-title">Selected Publications</h2>
-    <p class="section-subtitle">[Optional one-line intro, e.g. "A few highlights — see below for the full record."]</p>
+    <p class="section-subtitle">A few highlights — see below for the full record, or the live list on Google Scholar.</p>
 
     <div class="pub-list">
 
       <article class="pub-card">
-        <div class="pub-meta">
-          <span class="pub-tag">[Venue, e.g. NeurIPS 2026]</span>
+        <div class="pub-image">
+          <span class="pub-venue-badge">Under review, IEEE JBHI 2026</span>
+          <img src="assets/publications/omni-modal-decvae-fig1.jpg" alt="Omni-modal decomposition autoencoder architecture diagram" loading="lazy">
         </div>
-        <h3 class="pub-title">[Paper Title Placeholder One]</h3>
-        <p class="pub-authors">[Author One, Author Two, <strong>Your Name</strong>, Author Three]</p>
-        <p class="pub-desc">[Two to three sentence overview of the paper: the problem, the approach, and the key result.]</p>
-        <div class="pub-links">
-          <a href="#"><svg class="icon-sm" aria-hidden="true"><use href="#icon-arxiv"/></svg>PDF</a>
-          <a href="#"><svg class="icon-sm" aria-hidden="true"><use href="#icon-github"/></svg>Code</a>
-        </div>
-      </article>
-
-      <article class="pub-card">
-        <div class="pub-meta">
-          <span class="pub-tag">[Venue, e.g. ICML 2025]</span>
-        </div>
-        <h3 class="pub-title">[Paper Title Placeholder Two]</h3>
-        <p class="pub-authors">[<strong>Your Name</strong>, Author Two, Author Three]</p>
-        <p class="pub-desc">[Two to three sentence overview of the paper: the problem, the approach, and the key result.]</p>
-        <div class="pub-links">
-          <a href="#"><svg class="icon-sm" aria-hidden="true"><use href="#icon-arxiv"/></svg>PDF</a>
-          <a href="#"><svg class="icon-sm" aria-hidden="true"><use href="#icon-github"/></svg>Code</a>
+        <div class="pub-body">
+          <h3 class="pub-title">Omni-modal Decomposition Autoencoders Learn Full-Stack Wearable Disentangled Representations</h3>
+          <p class="pub-authors"><strong>Ziogas, I.</strong>; Khazaei, E.; Taha, B.; AlShehhi, A.; Khandoker, A.H.; Hadjileontiadis, L.J.; Hatzinakos, D.</p>
+          <p class="pub-desc">Omni-modal decomposition autoencoders that learn full-stack, disentangled representations across an arbitrarily large number of wearable channels and modalities, powered by self-supervised signal decomposition.</p>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2608.07385" target="_blank" rel="noopener"><svg class="icon-sm" aria-hidden="true"><use href="#icon-arxiv"/></svg>arXiv</a>
+          </div>
         </div>
       </article>
 
       <article class="pub-card">
-        <div class="pub-meta">
-          <span class="pub-tag">[Venue, e.g. Preprint 2025]</span>
+        <div class="pub-image">
+          <span class="pub-venue-badge">Under review, npj AI 2026</span>
+          <img src="assets/publications/variational-decvae-fig1.jpg" alt="Variational decomposition autoencoding figure" loading="lazy">
         </div>
-        <h3 class="pub-title">[Paper Title Placeholder Three]</h3>
-        <p class="pub-authors">[Author One, <strong>Your Name</strong>]</p>
-        <p class="pub-desc">[Two to three sentence overview of the paper: the problem, the approach, and the key result.]</p>
-        <div class="pub-links">
-          <a href="#"><svg class="icon-sm" aria-hidden="true"><use href="#icon-arxiv"/></svg>PDF</a>
+        <div class="pub-body">
+          <h3 class="pub-title">Variational Decomposition Autoencoding Improves Disentanglement of Latent Representations</h3>
+          <p class="pub-authors"><strong>Ziogas, I.</strong>; Khandoker, A.H.; AlShehhi, A.; Hadjileontiadis, L.J.</p>
+          <p class="pub-desc">Disentangles basic speech concepts via self-supervised, signal-decomposition-inspired learning, with a theoretical and experimental framework for measuring disentanglement in time series.</p>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2601.06844" target="_blank" rel="noopener"><svg class="icon-sm" aria-hidden="true"><use href="#icon-arxiv"/></svg>arXiv</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-image">
+          <span class="pub-venue-badge">Advanced Science, 2026</span>
+          <img src="assets/publications/hydrogel-electrode-fig1.jpg" alt="Conductive hydrogel electrode figure" loading="lazy">
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title">Systematic Benchmarking of a Noise-Tolerant Conductive Hydrogel Electrode for Epidermal Bioelectronics</h3>
+          <p class="pub-authors">Alsaafeen, N.&dagger;; <strong>Ziogas, I.</strong>&dagger;; Alsaedi, S.; Alshehhi, M.; Almheiri, S.; Rehman, A.; Al Shehhi, K.; Saleh, H.; Khandoker, A.; Pitsalidis, C.; Khawaja, A. <em>(&dagger; co-first authorship)</em></p>
+          <p class="pub-desc">Benchmarks a noise-tolerant conductive hydrogel electrode for epidermal bioelectronics, isolating material-specific signatures on physiological multi-lead waveforms via heartbeat segmentation and unsupervised clustering.</p>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1002/advs.202515131" target="_blank" rel="noopener"><svg class="icon-sm" aria-hidden="true"><use href="#icon-link"/></svg>Paper</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-image">
+          <span class="pub-venue-badge">IEEE ICASSPW 2024</span>
+          <img src="assets/publications/cochceps-augment-fig1.png" alt="CochCeps-Augment method diagram" loading="lazy">
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title">CochCeps-Augment: A Novel Self-Supervised Contrastive Learning Using Cochlear Cepstrum-based Masking for Speech Emotion Recognition</h3>
+          <p class="pub-authors"><strong>Ziogas, I.</strong>; Alfalahi, H.; Khandoker, A.H.; Hadjileontiadis, L.J.</p>
+          <p class="pub-desc">A self-supervised contrastive augmentation strategy that masks cochlear-cepstrum signal decomposition components, inspired by SpecAugment and SimCLR, for speech emotion recognition.</p>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2402.06923" target="_blank" rel="noopener"><svg class="icon-sm" aria-hidden="true"><use href="#icon-arxiv"/></svg>arXiv</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-image">
+          <span class="pub-venue-badge">IEEE Access, 2023</span>
+          <img src="assets/publications/bispectral-tremor-fig2-bispectrum.png" alt="Bispectral analysis of Parkinsonian tremor figure" loading="lazy">
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title">Bispectral Analysis of Parkinsonian Rest Tremor: New Characterization and Classification Insights Pre-/Post-DBS and Medication Treatment</h3>
+          <p class="pub-authors"><strong>Ziogas, I.</strong>&dagger;; Lamprou, C.&dagger;; Hadjileontiadis, L.J. <em>(&dagger; co-first authorship)</em></p>
+          <p class="pub-desc">Applies higher-order spectral (bispectral) analysis to characterize and classify Parkinsonian rest tremor before and after deep brain stimulation and medication treatment.</p>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1109/ACCESS.2023.3324987" target="_blank" rel="noopener"><svg class="icon-sm" aria-hidden="true"><use href="#icon-link"/></svg>Paper</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-body">
+          <div class="pub-meta">
+            <span class="pub-tag">IEEE ICASSP 2025</span>
+          </div>
+          <h3 class="pub-title">Self-Supervised Graph Representation Learning for In-the-Wild Wearable and Smartphone based Emotion Recognition</h3>
+          <p class="pub-authors"><strong>Ziogas, I.</strong>; Hadjileontiadis, L.J.; Khandoker, A.H.; AlShehhi, A.</p>
+          <p class="pub-desc">A self-supervised graph representation learning approach for emotion recognition from in-the-wild wearable and smartphone sensor data.</p>
         </div>
       </article>
 
@@ -403,47 +527,89 @@
     <div class="published-at">
       <h3 class="published-at-title">Published at</h3>
       <div class="venue-badges">
-        <span class="venue-badge">[Venue 1]</span>
-        <span class="venue-badge">[Venue 2]</span>
-        <span class="venue-badge">[Venue 3]</span>
-        <span class="venue-badge">[Venue 4]</span>
-        <span class="venue-badge">[Venue 5]</span>
+        <span class="venue-badge">IEEE Access</span>
+        <span class="venue-badge">Advanced Science</span>
+        <span class="venue-badge">IEEE ICASSP</span>
+        <span class="venue-badge">IEEE EMBC</span>
+        <span class="venue-badge">Artificial Intelligence Review</span>
+        <span class="venue-badge">Frontiers in Systems Neuroscience</span>
       </div>
-      <a href="[link to Google Scholar]" class="btn btn-secondary btn-sm">See all publications on Google Scholar</a>
+      <a href="https://scholar.google.com/citations?hl=en&user=ZJWROboAAAAJ" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">See all publications on Google Scholar</a>
     </div>
+
+    <!-- All publications, full citations -->
+    <details class="pub-all">
+      <summary class="pub-all-summary">
+        <span>View all publications (full citations)</span>
+        <span class="chev">&#9662;</span>
+      </summary>
+      <ol class="pub-all-list">
+        <li class="pub-all-item"><strong>Ziogas, I.</strong>; Khazaei, E.; Taha, B.; AlShehhi, A.; Khandoker, A.H.; Hadjileontiadis, L.J.; Hatzinakos, D. "Omni-modal Decomposition Autoencoders Learn Full-Stack Wearable Disentangled Representations." <span class="venue-year">Under review, IEEE Journal of Biomedical and Health Informatics, 2026</span>.</li>
+        <li class="pub-all-item"><strong>Ziogas, I.</strong>; Khandoker, A.H.; AlShehhi, A.; Hadjileontiadis, L.J. "Variational Decomposition Autoencoding Improves Disentanglement of Latent Representations." <span class="venue-year">Under review, npj Artificial Intelligence, 2026</span>.</li>
+        <li class="pub-all-item">Alkhodari, M.; <strong>Ziogas, I.</strong>; Singh, J.; Grigolini, P.; Muschert, G.W.; Kusmartsev, F.; Jelinek, H.F. "Continuous Bidirectional Coupling of Heart Rate Variability and Emotions in Dyad Speaker-Listener Dynamics Reveals Unique Interpersonal Synchronization." <span class="venue-year">Frontiers in Systems Neuroscience, 20, p.1802891, 2026</span>.</li>
+        <li class="pub-all-item">Alsaafeen, N.&dagger;; <strong>Ziogas, I.</strong>&dagger;; Alsaedi, S.; Alshehhi, M.; Almheiri, S.; Rehman, A.; Al Shehhi, K.; Saleh, H.; Khandoker, A.; Pitsalidis, C.; Khawaja, A. "Systematic Benchmarking of a Noise-Tolerant Conductive Hydrogel Electrode for Epidermal Bioelectronics." <span class="venue-year">Advanced Science, 13(20), p.e15131, 2026</span>. (&dagger;: co-first authorship)</li>
+        <li class="pub-all-item">Alkhodari, M.; <strong>Ziogas, I.</strong>; Singh, J.; Grigolini, P.; Muschert, G.; Kusmartsev, F.; Jelinek, H.F. "Bidirectional Coupling of Physiology and Emotions Reveals Unique Speaker–Listener Dynamics." <span class="venue-year">Social Cognitive and Affective Neuroscience, 21(1), nsag019, 2026</span>.</li>
+        <li class="pub-all-item">Bushara, F.; <strong>Ziogas, I.</strong>; Kumar, R.; Elkaffas, R.A.; Garg, A.; Samad, Y.A.; Hadjileontiadis, L.J.; Tardy, B.L.; Pitsalidis, C. "Bioderived and All-Solution-Processed Tribolayer Component Enables Adaptive Design of Flexible Nanocellulosic Triboelectric Nanogenerators." <span class="venue-year">Journal of Materials Chemistry A, 2026</span>.</li>
+        <li class="pub-all-item">Ganiti-Roumeliotou, E.; Apostolidis, G.; <strong>Ziogas, I.</strong>; Dias, S.B.; Hadjileontiadis, L.J. "Impact of Dynamic Serious Game Environments on Multimodal Physiological Signals: A Multivariate Swarm-Prey Approach." <span class="venue-year">IEEE EMBC, pp. 1-7, 2025</span>.</li>
+        <li class="pub-all-item">Alhussein, G.; Alkhodari, M.; <strong>Ziogas, I.</strong>; Lamprou, C.; Khandoker, A.H.; Hadjileontiadis, L.J. "Exploring Emotional Climate Recognition in Peer Conversations through Bispectral Features and Affect Dynamics." <span class="venue-year">Computer Methods and Programs in Biomedicine, 265, 108695, 2025</span>.</li>
+        <li class="pub-all-item">Alhussein, G.&dagger;; <strong>Ziogas, I.</strong>&dagger;; Saleem, S.&dagger;; Hadjileontiadis, L.J. "Speech Emotion Recognition in Conversations Using Artificial Intelligence: A Systematic Review and Meta-Analysis." <span class="venue-year">Artificial Intelligence Review, 58(7):198, 2025</span>. (&dagger;: co-first authorship)</li>
+        <li class="pub-all-item"><strong>Ziogas, I.</strong>; Hadjileontiadis, L.J.; Khandoker, A.H.; AlShehhi, A. "Self-Supervised Graph Representation Learning for In-the-Wild Wearable and Smartphone based Emotion Recognition." <span class="venue-year">IEEE ICASSP, 2025</span>.</li>
+        <li class="pub-all-item">Ganiti-Roumeliotou, E.; <strong>Ziogas, I.</strong>; Dias, S.B.; Alhussein, G.; Jelinek, H.F.; Hadjileontiadis, L.J. "Beyond the Game: Multimodal Emotion Recognition Before, During, and After Gameplay." <span class="venue-year">IEEE EMBC, 2024</span>.</li>
+        <li class="pub-all-item"><strong>Ziogas, I.</strong>; Alfalahi, H.; Khandoker, A.H.; Hadjileontiadis, L.J. "CochCeps-Augment: A Novel Self-Supervised Contrastive Learning Using Cochlear Cepstrum-based Masking for Speech Emotion Recognition." <span class="venue-year">IEEE ICASSPW, 2024</span>.</li>
+        <li class="pub-all-item"><strong>Ziogas, I.</strong>&dagger;; Lamprou, C.&dagger;; Hadjileontiadis, L.J. "Bispectral Analysis of Parkinsonian Rest Tremor: New Characterization and Classification Insights Pre-/Post-DBS and Medication Treatment." <span class="venue-year">IEEE Access, PP(99):1-1, 2023</span>. (&dagger;: co-first authorship)</li>
+        <li class="pub-all-item"><strong>Ziogas, I.</strong>&dagger;; Leta, V.&dagger;; Lamprou, C.; Trivedi, D.; Zinzalias, P.; Staunton, J.; Odin, P.; Chaudhuri, K.R.; Charisis, V.; Hadjidimitriou, S.; Stouraitis, T.; Hadjileontiadis, L.J. "Dynamic Monitoring of Probiotics Effect in Parkinson's Disease Patients via Swarm Decomposition and Bispectral Analysis of Electrogastrograms." <span class="venue-year">IEEE EMBC, 2023</span>. (&dagger;: co-first authorship)</li>
+        <li class="pub-all-item">Ganiti-Roumeliotou, E.&dagger;; <strong>Ziogas, I.</strong>&dagger;; Lamprou, C.&dagger;; Alhussein, G.; Alfalahi, H.; AlShehhi, A.; Dias, S.B.; Jelinek, H.F.; Stouraitis, T.; Hadjileontiadis, L.J. "Classification of Children with ADHD through Task-related EEG Recordings via Swarm-Decomposition-based Phase Locking Value." <span class="venue-year">IEEE EMBC, 2023</span>. (&dagger;: co-first authorship)</li>
+        <li class="pub-all-item">Alhussein, G.; Alkhodari, M.; Lamprou, C.; <strong>Ziogas, I.</strong>; Ganiti-Roumeliotou, E.; Khandoker, A.H.; Hadjileontiadis, L.J. "Emotional Climate Recognition in Conversations using Peers' Speech-based Bispectral Features and Affect Dynamics." <span class="venue-year">IEEE EMBC, 2023</span>.</li>
+        <li class="pub-all-item">Alfalahi, H.; AlShehhi, A.; Lamprou, C.; <strong>Ziogas, I.</strong>; Ganiti-Roumeliotou, E.; Khandoker, A.H.; Hadjileontiadis, L.J. "Parkinsonian Tremor Detection with Compact Convolutional Transformer from Bispectrum Representation of tri-Axial Accelerometer Signals." <span class="venue-year">IEEE EMBC, 2023</span>.</li>
+        <li class="pub-all-item">Lamprou, C.&dagger;; <strong>Ziogas, I.</strong>&dagger;; Ganiti-Roumeliotou, E.&dagger;; Alfalahi, H.; Alhussein, G.; AlShehhi, A.; Hadjileontiadis, L.J. "Deep Bispectral Image Analysis for IMU-based Parkinsonian Tremor Detection." <span class="venue-year">IEEE ISBI, 2023</span>. (&dagger;: co-first authorship)</li>
+      </ol>
+    </details>
   </div>
 </section>
 
 <!-- ============ SERVICE ============ -->
 <section class="section" id="service">
+  <canvas class="section-canvas" data-trace></canvas>
   <div class="section-inner">
     <h2 class="section-title">Service</h2>
-    <p class="section-subtitle">[Optional one-line intro, e.g. "Teaching and mentoring experience."]</p>
+    <p class="section-subtitle">Teaching and mentoring experience.</p>
 
     <div class="service-grid">
 
       <article class="service-card">
-        <div class="service-meta">[Term, e.g. Fall 2025]</div>
-        <h3>[Course name / Role — e.g. "Teaching Assistant, Machine Learning"]</h3>
-        <p>[One or two sentences: institution, your responsibilities, or what the role involved.]</p>
+        <div class="service-meta">Jun 2025 — Present</div>
+        <h3>MSc Thesis Mentor · AUTh, Signal Processing &amp; Biotechnology Unit</h3>
+        <p>Co-supervising M. N. Forou and A. Pappa on a smartphone-based serious game platform for psoriatic arthritis patients, from thesis conception through signal processing and machine learning guidance for grip-strength and gesture recognition.</p>
       </article>
 
       <article class="service-card">
-        <div class="service-meta">[Term, e.g. 2024 — present]</div>
-        <h3>[Mentoring role — e.g. "Mentor, Undergraduate Research Program"]</h3>
-        <p>[One or two sentences describing who you mentored and on what.]</p>
+        <div class="service-meta">Jun 2025 — Present</div>
+        <h3>MSc Thesis Mentor · AUTh, Signal Processing &amp; Biotechnology Unit</h3>
+        <p>Co-supervising K. Tsokkos on affective game design with emotionally adaptive avatars, using short-term multimodal physiological signal analysis and graph neural network modeling.</p>
       </article>
 
       <article class="service-card">
-        <div class="service-meta">[Term]</div>
-        <h3>[Other service — e.g. "Reviewer, [Conference/Journal]"]</h3>
-        <p>[One or two sentences, optional.]</p>
+        <div class="service-meta">Jun 2025 — Jun 2026</div>
+        <h3>MSc Thesis Mentor · AUTh, Signal Processing &amp; Biotechnology Unit</h3>
+        <p>Co-supervising M. Dimou on multimodal autoencoder models for a sensor-less physiological monitoring tool, exploring cross-modal retrieval and generation between signal and game-log recordings.</p>
       </article>
 
       <article class="service-card">
-        <div class="service-meta">[Term — optional, delete if unused]</div>
-        <h3>[Additional teaching/service entry]</h3>
-        <p>[One or two sentences.]</p>
+        <div class="service-meta">Jan 2023 — Jun 2026</div>
+        <h3>Teaching Assistant, Fundamentals of Biosignal Processing (BME 352) · Khalifa University</h3>
+        <p>Graded homework, quizzes, and exams and held office hours for this undergraduate course across four semesters.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-meta">Aug 2023 — Dec 2024</div>
+        <h3>Teaching Assistant, Biomedical Circuits and Signals (BME 351) · Khalifa University</h3>
+        <p>Graded homework, quizzes, and exams and held office hours for this undergraduate course across two semesters.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-meta">Jan 2023 — Jun 2024</div>
+        <h3>Teaching Assistant, Biosensors: Fundamentals and Analysis (BME 641, M.Sc.) · Khalifa University</h3>
+        <p>Delivered guest lectures on digital biomarkers and AI-driven signal processing, plus lab sessions on biosensor data analysis with OriginLab.</p>
       </article>
 
     </div>
@@ -452,6 +618,7 @@
 
 <!-- ============ CONTACT ============ -->
 <section class="section section-alt" id="contact">
+  <canvas class="section-canvas" data-trace></canvas>
   <div class="section-inner">
     <h2 class="section-title">Contact</h2>
     <p class="section-subtitle">[Short line inviting people to reach out — e.g. "Open to collaborations, questions, or just saying hi."]</p>
@@ -487,6 +654,7 @@
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
+  <canvas class="footer-canvas" data-trace></canvas>
   <p>&copy; <span id="year"></span> Ioannis Ziogas, hosted on GitHub Pages.</p>
 </footer>
 
